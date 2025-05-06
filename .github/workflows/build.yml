@@ -12,18 +12,18 @@ jobs:
   browser-tests:
     runs-on: ${{ matrix.os }}
     strategy:
-  fail-fast: false
-  matrix:
-    os: [ubuntu-latest, macos-latest, windows-latest]
-    node-version: [18, 20, 22]
-    browser: [chromium, firefox, webkit]
-    exclude:
-      - os: ubuntu-latest
-        browser: webkit
-      - os: windows-latest
-        browser: webkit
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [18, 20, 22]
+        browser: [chromium, firefox, webkit]
+        exclude:
+          - os: ubuntu-latest
+            browser: webkit
+          - os: windows-latest
+            browser: webkit
 
-        
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
